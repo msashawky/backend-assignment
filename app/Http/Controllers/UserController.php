@@ -16,7 +16,7 @@ class UserController extends Controller
     }
 
     public function index(){//Get users
-        $users = $this->userRepository->getUsers();
+        $users = $this->userRepository->getUsers();//dd($users);
         if($users)
             return $this->apiResponse(UserResource::collection($users));//apiResponse initialized in Controller.php to be public for all controllers
         return $this->notFoundResponse("No Users found");
@@ -26,7 +26,7 @@ class UserController extends Controller
         $user = $this->userRepository->getUser($user_id);
         if($user){
             $this->userRepository->visitUser($user_id);
-            return $this->apiResponse($user);
+            return  $this->apiResponse($user);
         }
         else{
             return $this->notFoundResponse("User is Not Found");

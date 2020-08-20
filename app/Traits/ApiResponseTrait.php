@@ -17,11 +17,13 @@ trait ApiResponseTrait{
 
     public function apiResponse($data = null, $error = null, $code = 200){
 
-        $array = [
-            'data' => $data,
-            'status' => in_array($code, $this->successCode())  ? true : false,
-            'error' => $error
-        ];
+        $array = $data;
+        //We removed the status and error keys to be compatible with the test case
+            //[
+//            'data' => $data,
+//            'status' => in_array($code, $this->successCode())  ? true : false,
+//            'error' => $error
+//        ];
         return response($array, $code);
 
     }

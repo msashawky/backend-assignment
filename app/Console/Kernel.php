@@ -25,8 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call('reset:weekly')->weekly();
-        $schedule->call('reset:monthly')->monthly();
+        $schedule->call('reset:weekly')->everyMinute();
+//        $schedule->call('reset:monthly')->everyMinute();
     }
 
     /**
