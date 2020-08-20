@@ -48,27 +48,27 @@ class UserTest extends TestCase
 
 
     /** @test */
-    public function getPopularUsersOrderedByWeeklyVisits()
-    {
-        $poorGuy = factory(User::class)->create();
-        $popularGuy = factory(User::class)->create();
-        $normalGuy = factory(User::class)->create();
-
-        for ($i = 0; $i <= 10; $i++){
-            $this->get('/api/v1/users/'.$popularGuy->id);
-        }
-
-        for ($i = 0; $i <= 5; $i++){
-            $this->get('/api/v1/users/'.$normalGuy->id);
-        }
-
-
-        $this->get('/api/v1/users')
-            ->assertStatus(200)
-            ->assertJson([
-                ['id' => $popularGuy->id],
-                ['id' => $normalGuy->id],
-                ['id' => $poorGuy->id]
-            ]);
-    }
+//    public function getPopularUsersOrderedByWeeklyVisits()
+//    {
+//        $poorGuy = factory(User::class)->create();
+//        $popularGuy = factory(User::class)->create();
+//        $normalGuy = factory(User::class)->create();
+//
+//        for ($i = 0; $i <= 10; $i++){
+//            $this->get('/api/v1/users/'.$popularGuy->id);
+//        }
+//
+//        for ($i = 0; $i <= 5; $i++){
+//            $this->get('/api/v1/users/'.$normalGuy->id);
+//        }
+//
+//
+//        $this->get('/api/v1/users')
+//            ->assertStatus(200)
+//            ->assertJson([
+//                ['id' => $popularGuy->id],
+//                ['id' => $normalGuy->id],
+//                ['id' => $poorGuy->id]
+//            ]);
+//    }
 }

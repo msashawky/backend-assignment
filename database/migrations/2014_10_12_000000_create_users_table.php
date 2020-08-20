@@ -20,7 +20,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->integer('number_of_views')->default(0);
+            $table->integer('weekly_visits_count')->default(0);
+            $table->integer('monthly_visits_count')->default(0);
             $table->timestamps();
         });
     }
