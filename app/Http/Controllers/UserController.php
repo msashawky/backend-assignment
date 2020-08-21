@@ -23,10 +23,10 @@ class UserController extends Controller
     }
 
     public function user($user_id){
-        $user = $this->userRepository->getUser($user_id);
+        $this->userRepository->visitUser($user_id);
+        $user = $this->userRepository->getUser($user_id);//dd($user->monthly_visits_count);
         if($user){
-            $this->userRepository->visitUser($user_id);
-            return  $this->apiResponse($user);
+            return [$this->apiResponse($user)];
         }
         else{
             return $this->notFoundResponse("User is Not Found");

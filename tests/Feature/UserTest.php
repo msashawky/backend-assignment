@@ -19,7 +19,7 @@ class UserTest extends TestCase
             ->assertStatus(200);
     }
 
-//    /** @test */
+    /** @test */
     public function gettingSingleUserShouldRecordNewVisit()
     {
         $user = factory(User::class)->create();
@@ -28,12 +28,12 @@ class UserTest extends TestCase
             ->assertJsonFragment(['weekly_visits_count' => 1])
             ->assertJsonFragment(['monthly_visits_count' => 1]);
 
-        $this->get('/api/v1/users/'.$user->id)
-            ->assertJsonFragment(['weekly_visits_count' => 2])
-            ->assertJsonFragment(['monthly_visits_count' => 2]);
+            $this->get('/api/v1/users/'.$user->id)
+                ->assertJsonFragment(['weekly_visits_count' => 2])
+                ->assertJsonFragment(['monthly_visits_count' => 2]);
     }
 
-//    /** @test */
+    /** @test */
     public function gettingAllUsersShouldRecordNewViewForEachUser()
     {
         $user = factory(User::class)->create();
@@ -41,8 +41,8 @@ class UserTest extends TestCase
             ->assertStatus(200);
 
         $this->get('/api/v1/users/'.$user->id)
-            ->assertJsonFragment(['weekly_views_count' => 1])
-            ->assertJsonFragment(['monthly_views_count' => 1]);
+            ->assertJsonFragment(['weekly_visits_count' => 1])
+            ->assertJsonFragment(['monthly_visits_count' => 1]);
     }
 
 

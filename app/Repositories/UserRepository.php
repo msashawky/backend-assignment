@@ -25,7 +25,9 @@ class UserRepository implements UserRepositoryInterface
                      $row->weekly_visits_count++;
                      $row->monthly_visits_count++;
                      $row->save();
-             });
+                 });
+
+
     }
 
     public function visitUser($user_id){
@@ -33,10 +35,11 @@ class UserRepository implements UserRepositoryInterface
         $user->weekly_visits_count++;
         $user->monthly_visits_count++;
         $user->save();
+        return $user;
     }
 
     public function getUser($user_id){
-        return $this->user->find($user_id);//where('id', $user_id)->first();
+        return $this->user->find($user_id);
     }
 
     public function resetWeeklyVisits(){// this method will be used as a facade in the weekly reset console
