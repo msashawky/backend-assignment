@@ -1,3 +1,9 @@
+
+<br>
+-Kindly run the Database Seeds to create the 50K test records by using php artisan db:seed, it will run the user factory.
+<br> -Automatic weekly and monthly reset visits can be found by running the cutome created command: php artisan reset:weekly.
+<br>-Used Design Pattern: Repository Design Patterns, each method in App\Repositories\Repository class has an implementation in Interfaces\RepositoryInterfaceClass
+
 Reachnetwork Backend Web Development Assignment 
 ===========================
 Start by forking this repo, solving the descriped below problem and pass the tests.

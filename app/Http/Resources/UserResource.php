@@ -13,13 +13,8 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'email_verified_at' => $this->email_verified_at,
-            'password' => $this->password,
-            'remember_token' => $this->remember_token,
             'weekly_visits_count' => $this->weekly_visits_count,
             'monthly_visits_count' => $this->monthly_visits_count,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ];
     }
 

@@ -26,7 +26,7 @@ class UserController extends Controller
         $this->userRepository->visitUser($user_id);
         $user = $this->userRepository->getUser($user_id);//dd($user->monthly_visits_count);
         if($user){
-            return [$this->apiResponse($user)];
+            return [$user];//instead of using $this->apiResponse() to make the resource compatible with the tests;
         }
         else{
             return $this->notFoundResponse("User is Not Found");

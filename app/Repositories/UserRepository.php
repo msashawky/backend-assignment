@@ -18,14 +18,17 @@ class UserRepository implements UserRepositoryInterface
 
     public function getUsers()
     {
-//        return Cache::rememberForever('usersCache', function(){
-             return $this->user->orderBy('weekly_visits_count', 'DESC')
+        return Cache::rememberForever('usersCache', function(){
+             $users = $this->user->orderBy('weekly_visits_count', 'DESC')
                  ->paginate(15)
                  ->each(function ($row) {
                      $row->weekly_visits_count++;
                      $row->monthly_visits_count++;
                      $row->save();
                  });
+             return $users;
+        });
+
 
 
     }
